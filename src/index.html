@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+
+<body>
+    <h1>Hello World of Loading JavaScript via Script Tag</h1>
+
+    <!-- Normal Script Tag -->
+    <script>
+        function createWorld() {
+            const h2Element = document.createElement('h2');
+            h2Element.innerHTML = 'Content loaded via script tag';
+            document.body.appendChild(h2Element);
+        }
+
+        createWorld();
+    </script>
+
+    <!-- Script Tag with local Resource file -->
+    <script src="./assets/js/main.js"></script>
+
+    <!-- Script Tag with External Resource file -->
+    <script src="//grvpanchal.ml/assets/js/createExternalWorld.js"></script>
+
+    <!-- Script Tag that dynamically load a script file -->
+    <script>
+        function loadScriptDynamically(src) {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = src;
+            document.head.appendChild(scriptElement);
+        }
+
+        setTimeout(() => loadScriptDynamically('./assets/js/createDynamicInsertWorld.js'), 3000);
+    </script>
+
+    <!-- Script Tag that supports ES6 Module Import -->
+    <script src="assets/js/app.js" type="module"></script>
+</body>
+
+</html>
